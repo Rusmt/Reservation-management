@@ -2,99 +2,53 @@ package com.example.a15110008.reservationmanagement;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.util.Log;
-import android.util.SparseBooleanArray;
-import android.widget.Button;
 import android.widget.ListView;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import java.util.ArrayList;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class SelectHour extends AppCompatActivity {
-    private ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_hour);
 
-        //タブメニューの作成
-       /* TabHost tabhost = (TabHost)findViewById(android.R.id.tabhost);
-        tabhost.setup();
+        //TabHost
+        TabHost menutab =(TabHost)findViewById(R.id.tabHost2);
+        menutab.setup();
 
-        TabSpec tab1 = tabhost.newTabSpec("tab1");
-        tab1.setIndicator("予約");
-        tab1.setContent(R.id.tab1);
-        tabhost.addTab(tab1);
+        TabSpec tab1 = menutab.newTabSpec("tab1");
+        tab1.setIndicator("タブ１");
+        tab1.setContent(R.id.shTab1);
+        menutab.addTab(tab1);
 
-        TabSpec tab2 = tabhost.newTabSpec("tab2");
-        tab2.setIndicator("検索");
-        tab2.setContent(R.id.tab2);
-        tabhost.addTab(tab2);
+        TabSpec tab2 = menutab.newTabSpec("tab2");
+        tab2.setIndicator("タブ2");
+        tab2.setContent(R.id.shTab2);
+        menutab.addTab(tab2);
 
-        tabhost.setCurrentTab(0);   */
-        //タブメニューの作成
-        //リストビューの作成
-        ArrayList<String>list = new ArrayList<String>();
-        list.add("9:00～10:00");
-        list.add("10:00～11:00");
-        list.add("11:00～12:00");
-        list.add("12:00～13:00");
-        list.add("13:00～14:00");
-        list.add("14:00～15:00");
-        list.add("15:00～16:00");
-        list.add("16:00～17:00");
-        list.add("17:00～18:00");
-        list.add("18:00～19:00");
+        menutab.setCurrentTab(0);
 
-        //adapterの作成,
+        //ListView
+        ListView houritems = (ListView)findViewById(R.id.hourItem);
+        houritems.setItemsCanFocus(false);
 
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, list);
-        //listviewにadapterを関連付ける
-        ListView timelist = (ListView) findViewById(R.id.timeList);
-        timelist.setAdapter(adapter);
-        timelist.setOnItemClickListener(listViewOnItemClickListener);       //クリック時の処理
-        //リストビューの作成
+        ArrayList<String> items = new ArrayList<>();
+        items.add("9:00～10:00");
+        items.add("10:00～11:00");
+        items.add("11:00～12:00");
+        items.add("12:00～13:00");
+        items.add("13:00～14:00");
+        items.add("14:00～15:00");
+        items.add("15:00～16:00");
+        items.add("16:00～17:00");
+        items.add("17:00～18:00");
+        items.add("18:00～19:00");
+
+        houritems.setAdapter(new ArrayAdapter(this, android.R.layout.simple_list_item_checked,items ));
+        houritems.setChoiceMode(ListView.CHOICE_MODE_NONE);
+
     }
-
-    private OnItemClickListener listViewOnItemClickListener = new OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-            ListView listView = (ListView)adapterView;
-            SparseBooleanArray checkedItemPositions = listView.getCheckedItemPositions();
-            Log.d("", String.format("position:%d checked:%b", position, checkedItemPositions.get(position)));
-        }
-    };
-
-    private OnClickListener infoButtonOnClickListener = new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            ListView listView = (ListView)findViewById(R.id.timeList);
-            SparseBooleanArray checkedItemPositions = listView.getCheckedItemPositions();       //リストの各行が選択されているかを判断するboolean型の配列
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < checkedItemPositions.size(); i++) {
-                int itemIndex = checkedItemPositions.keyAt(i);
-                sb.append(String.format("index:%d value:%b\n", itemIndex, checkedItemPositions.get(itemIndex)));
-            }
-            //ログの排出
-            Log.d("", sb.toString());
-            Log.d("", "---");
-            sb.setLength(0);
-            for (int position = 0; position < adapter.getCount(); position++) {
-                sb.append(String.format("position:%d checked:%b\n", position, checkedItemPositions.get(position)));
-            }
-            Log.d("", sb.toString());
-        }
-    };
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }*/
 }

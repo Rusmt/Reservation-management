@@ -3,19 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="0dp"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
-    android:paddingTop="0dp"
-    tools:context="com.example.a15110008.reservationmanagement.SelectHour">
+    tools:context="com.example.a15110008.reservationmanagement.SelectHour"
+    android:padding="0dp">
 
     <TabHost
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/tabHost"
+        android:id="@+id/tabHost2"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true">
+        android:layout_centerHorizontal="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,54 +19,53 @@
             android:orientation="vertical">
 
             <TabWidget
+                android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:longClickable="false"
-                android:id="@+id/tabs"></TabWidget>
+                android:layout_height="wrap_content"></TabWidget>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:measureAllChildren="false">
+                android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:id="@+id/tab1"
+                    android:id="@+id/shTab1"
                     android:layout_width="match_parent"
-                    android:layout_height="393dp"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <LinearLayout
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="利用したい時間帯を選択してください"
-                            android:id="@+id/textView"
-                            android:layout_marginTop="10dp" />
-                    </LinearLayout>
-
-                    <ListView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/timeList"
-                        android:choiceMode="multipleChoice" />
-
-                    <Button
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="OK"
-                        android:id="@+id/button" />
+                        android:text="利用したい時間帯を選択してください"
+                        android:id="@+id/textView4"
+                        android:textSize="20dp" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="(※複数選択可)"
+                        android:id="@+id/textView5"
+                        android:gravity="right" />
+
+                    <ListView
+                        android:layout_width="wrap_content"
+                        android:layout_height="350dp"
+                        android:id="@+id/hourItem"
+                        android:clickable="false"
+                        android:contextClickable="false"
+                        android:foregroundGravity="center_vertical" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="確認"
+                        android:id="@+id/button" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/tab2"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/shTab2"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"></LinearLayout>
 
