@@ -40,29 +40,34 @@ public class SelectHour extends AppCompatActivity {
         tabhost.setCurrentTab(0);   */
         //タブメニューの作成
         //リストビューの作成
-        ArrayList<String>list = new ArrayList<String>();
-        list.add("9:00～10:00");
-        list.add("10:00～11:00");
-        list.add("11:00～12:00");
-        list.add("12:00～13:00");
-        list.add("13:00～14:00");
-        list.add("14:00～15:00");
-        list.add("15:00～16:00");
-        list.add("16:00～17:00");
-        list.add("17:00～18:00");
-        list.add("18:00～19:00");
+        ArrayList<String>item = new ArrayList<String>();
+        item.add("9:00～10:00");
+        item.add("10:00～11:00");
+        item.add("11:00～12:00");
+        item.add("12:00～13:00");
+        item.add("13:00～14:00");
+        item.add("14:00～15:00");
+        item.add("15:00～16:00");
+        item.add("16:00～17:00");
+        item.add("17:00～18:00");
+        item.add("18:00～19:00");
 
         //adapterの作成,
-
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, list);
-        //listviewにadapterを関連付ける
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, item);
         ListView timelist = (ListView) findViewById(R.id.timeList);
         timelist.setAdapter(adapter);
-        timelist.setOnItemClickListener(listViewOnItemClickListener);       //クリック時の処理
+
+        //クリック時の処理
+       //Button
+       // timelist.setOnItemClickListener(listViewOnItemClickListener);
+
+
         //リストビューの作成
     }
 
-    private OnItemClickListener listViewOnItemClickListener = new OnItemClickListener() {
+
+
+   /* private OnItemClickListener listViewOnItemClickListener = new OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
             ListView listView = (ListView)adapterView;
@@ -90,7 +95,7 @@ public class SelectHour extends AppCompatActivity {
             }
             Log.d("", sb.toString());
         }
-    };
+    };*/
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
