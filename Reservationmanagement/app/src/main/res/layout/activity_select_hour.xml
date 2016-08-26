@@ -60,7 +60,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="確認"
-                        android:id="@+id/button" />
+                        android:id="@+id/sbOKbtn"
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout
