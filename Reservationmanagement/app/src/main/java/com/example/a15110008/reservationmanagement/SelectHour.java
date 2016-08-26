@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class SelectHour extends AppCompatActivity {
@@ -63,51 +65,52 @@ public class SelectHour extends AppCompatActivity {
                 String selecteditem = "";
                 String search = "";
                 int index;
-                boolean consecutiveflg = false;
-                //チェック済みのitemを取得する
+                int i ,firstlocate = 0,count = 0;
+                boolean checkflg = false;           //時間帯が選択されているか
+                //itemの真偽を判定するためのbolean型の配列
                 SparseBooleanArray checked = houritems.getCheckedItemPositions();
-                int i, j;
-                for (i = 0; i < items.size(); i++) {
-                    for (j = i + 1; j < items.size(); j++) {
-                        //連続で時間帯が選択されているかを判定する
-                        if (checked.get(i) == true) {
-                            if (checked.get(j) == false) {
-                                //連続選択されていない場合
-                                if (i == j - 1) {
-                                    selecteditem = items.get(i) + "\r\n";
-                                    consecutiveflg = false;
-                                    break;
-                                }
-                            } else {
-                                //連続選択されている場合
+
+                for(i = 0; i <= items.size(); i ++){
+                    if(checked.get(i)){
+                        count ++;
+                        if(count == 1) {
+                            firstlocate = i;
+                        }
+                    }else{
+                        switch (count){
+                            case 0 :
+                                break;
+                            case 1 :
+                                //単体時間の取得
+                                selecteditem = selecteditem + items.get(firstlocate) + "\r\n";
+                                count = 0;
+                                checkflg = true;
+                                break;
+                            default:
+                                //連続時間の取得
                                 //前半時間帯の抜き出し
-                                search = items.get(i);
+                                search = items.get(firstlocate);
                                 index = search.indexOf("～");
                                 selecteditem = selecteditem + search.substring(0, index);
+
                                 //後半時間帯の抜き出し
-                                search = items.get((j));
+                                search = items.get(i - 1);
                                 index = search.indexOf("～");
                                 selecteditem = selecteditem + search.substring(index) + "\r\n";
-                                i = j;
-                                consecutiveflg = true;
-                                    break;
-                            }
+                                checkflg = true;
+                                count = 0;
+                                break;
                         }
                     }
                 }
-                if(checked.get((items.size()) - 1) == true) {
-                    if (consecutiveflg == false) {
-                        selecteditem = selecteditem + items.get(items.size() - 1);
-                    } else {
-                        search = items.get(items.size() - 1);
-                        index = search.indexOf("～");
-                        int index2 = selecteditem.lastIndexOf("～");
-                        selecteditem = selecteditem.substring(0,index2) + search.substring(index) + "\r\n";
-                    }
+                if (checkflg){
+                    intent.putExtra("selectedhour", selecteditem);
+                    startActivity(intent);
+                }else{
+                    //時間帯が選択されていない場合Toastで警告
+                    Toast toast = Toast.makeText(getApplicationContext(),"時間が選択されていません。",Toast.LENGTH_LONG);
+                    toast.show();
                 }
-                intent.putExtra("selectedhour", selecteditem);
-                startActivity(intent);
-
             }
         });
     }

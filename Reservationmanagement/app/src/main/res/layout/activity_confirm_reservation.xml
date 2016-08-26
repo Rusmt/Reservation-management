@@ -32,116 +32,121 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <LinearLayout
+                <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:id="@+id/crTab1"
-                    android:weightSum="1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="以下の予約を登録します。\nよろしいですか？"
-                        android:id="@+id/textView6"
-                        android:layout_gravity="center_horizontal"
-                        android:textSize="30dp"
-                        android:background="@color/abc_search_url_text_normal"
-                        android:singleLine="false" />
-
+                    android:id="@+id/scrollView" >
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="日付："
-                            android:id="@+id/textView7"
-                            android:textSize="30dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="００"
-                            android:id="@+id/selectedMonth"
-                            android:textSize="30dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="月"
-                            android:id="@+id/textView8"
-                            android:textSize="30dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="００"
-                            android:id="@+id/selectedDay"
-                            android:textSize="30dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="日"
-                            android:id="@+id/textView10"
-                            android:textSize="30dp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="部屋："
-                            android:id="@+id/textView11"
-                            android:textSize="30dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="部屋名"
-                            android:id="@+id/textView13"
-                            android:textSize="30dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                        android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:id="@+id/crTab1"
+                        android:weightSum="1">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="利用時間："
-                            android:id="@+id/textView12"
-                            android:textSize="30dp" />
+                            android:text="以下の予約を登録します。\nよろしいですか？"
+                            android:id="@+id/textView6"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="30dp"
+                            android:singleLine="false" />
+
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="日付："
+                                android:id="@+id/textView7"
+                                android:textSize="30dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="００"
+                                android:id="@+id/selectedMonth"
+                                android:textSize="30dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="月"
+                                android:id="@+id/textView8"
+                                android:textSize="30dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="００"
+                                android:id="@+id/selectedDay"
+                                android:textSize="30dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="日"
+                                android:id="@+id/textView10"
+                                android:textSize="30dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="部屋："
+                                android:id="@+id/textView11"
+                                android:textSize="30dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="部屋名"
+                                android:id="@+id/textView13"
+                                android:textSize="30dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="利用時間："
+                                android:id="@+id/textView12"
+                                android:textSize="30dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="００：００～００：００"
+                                android:id="@+id/selectedHour"
+                                android:textSize="30dp"
+                                android:gravity="center_horizontal" />
+
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="確定"
+                                android:id="@+id/crOKButton"
+                                android:layout_gravity="center_horizontal" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="００：００～００：００"
-                        android:id="@+id/selectedHour"
-                        android:textSize="30dp"
-                        android:gravity="center_horizontal" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="確定"
-                        android:id="@+id/crOKButton"
-                        android:layout_gravity="center_horizontal" />
-
-                </LinearLayout>
+                </ScrollView>
 
                 <LinearLayout
                     android:id="@+id/crTab2"
