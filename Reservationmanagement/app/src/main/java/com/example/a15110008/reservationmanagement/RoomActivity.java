@@ -40,17 +40,17 @@ public class RoomActivity extends AppCompatActivity {
             String room_size=room_list.rooms[i][1];
             TextView room_name_text_view= (TextView) tr.getChildAt(0);
             TextView room_size_text_view= (TextView) tr.getChildAt(1);
-            room_name_text_view .setText(room_name);
+            room_name_text_view.setText(room_name);
             room_size_text_view.setText(room_size);
+            room_name_text_view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(RoomActivity.this, SelectHour.class);
+                    startActivity(intent);
+                }
+
+
+            });
         }
-//        room_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view,
-//                                    int position, long id) {
-//                Intent intent = new Intent(RoomActivity.this, RoomActivity.class);
-//                startActivity(intent);
-//                Toast.makeText(getApplicationContext(), "Test OK!", Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 }
