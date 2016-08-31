@@ -1,15 +1,13 @@
-package com.example.a15110008.reservationmanagement;
+package com.example.a15110008.reservation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-
-public class RoomActivity extends AppCompatActivity {
+public class tab2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_room);
-
+        setContentView(R.layout.activity_tab2);
     }
 }

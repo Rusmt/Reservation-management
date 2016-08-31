@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.a15110008.reservationmanagement">
+    package="com.example.a15110008.reservation">
 
     <application
         android:allowBackup="true"
@@ -8,20 +8,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelectHour">
+        <activity android:name=".Reservation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Reservation" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".test">
-        <activity android:name=".floorActivity" />
-        <activity android:name=".RoomActivity"></activity>
-
+        <activity android:name=".tab1" />
+        <activity android:name=".tab2"></activity>
     </application>
 
 </manifest>

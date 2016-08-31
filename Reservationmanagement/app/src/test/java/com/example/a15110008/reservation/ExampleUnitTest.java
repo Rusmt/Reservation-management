@@ -1,4 +1,4 @@
-package com.example.a15110008.reservationmanagement;
+package com.example.a15110008.reservation;
 
 import org.junit.Test;
 
