@@ -10,18 +10,17 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SelectHour"/>
         <activity android:name=".Reservation" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".test" />
         <activity android:name=".floorActivity" />
         <activity android:name=".RoomActivity" />
         <activity android:name=".ConfirmReservation" />
-        <activity android:name=".SelectDate">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+        <activity android:name=".SelectDate"/>
     </application>
 
 </manifest>
