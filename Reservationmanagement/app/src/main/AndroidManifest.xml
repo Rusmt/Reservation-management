@@ -14,7 +14,6 @@
         <activity android:name=".SelectDate" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
-
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
@@ -22,5 +21,6 @@
         <activity android:name=".tab1" />
         <activity android:name=".tab2" />
         <activity android:name=".RoomActivity"></activity>
+        <activity android:name=".FirebaseTestActivity"></activity>
     </application>
 </manifest>
