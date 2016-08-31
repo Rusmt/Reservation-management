@@ -3,13 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a15110008.reservationmanagement.SelectHour"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.a15110008.reservationmanagement.SelectDate"
     android:padding="0dp">
 
     <TabHost
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/tabHost2"
+        android:id="@+id/tabHost4"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
 
@@ -32,37 +36,31 @@
                     android:id="@+id/shTab1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:weightSum="1">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="利用したい時間帯を選択してください"
-                        android:id="@+id/textView4"
-                        android:textSize="20dp" />
+                        android:text="日付を選択してください。"
+                        android:id="@+id/textView9"
+                        android:textSize="24dp" />
 
-                    <TextView
+                    <DatePicker
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="(※複数選択可)"
-                        android:id="@+id/textView5"
-                        android:gravity="right" />
-
-                    <ListView
-                        android:layout_width="wrap_content"
-                        android:layout_height="350dp"
-                        android:id="@+id/hourItem"
-                        android:clickable="false"
-                        android:contextClickable="false"
-                        android:theme="@style/TextViewStyle"
-                        android:foregroundGravity="center_vertical" />
+                        android:layout_height="280dp"
+                        android:id="@+id/datePicker"
+                        android:calendarViewShown="false"
+                        android:spinnersShown="true"
+                        android:datePickerMode="spinner"/>
 
                     <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="確認"
-                        android:id="@+id/sbOKbtn"
-                        android:onClick="onClick" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="決定"
+                        android:id="@+id/sdOKbtn"
+                        android:layout_gravity="center_horizontal" />
+
                 </LinearLayout>
 
                 <LinearLayout
