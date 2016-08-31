@@ -11,12 +11,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.firebase.client.Firebase;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 
 import de.timroes.android.listview.EnhancedListView;
 
 public class Reservation extends AppCompatActivity {
+
 
 
     // 最初のリスト
@@ -38,6 +41,9 @@ public class Reservation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //データベース利用準備
+        Firebase.setAndroidContext(getApplicationContext());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
@@ -86,18 +92,33 @@ public class Reservation extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //ボタン押した時の処理内容をここに記述
+                                //サーバの情報を更新
+
+
                             }
                         })
                         .setNegativeButton("NO", new DialogInterface.OnClickListener() {//ダイアログ内に表示するボタンの設定"NO"押した場合
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //ボタン押した時の処理内容をここに記述
+                                //変更まえのページに戻す（リストが元に戻る）
+
+
                             }
                         })
                         .show();
+
             }
         });
 
+        Button btn = (Button)findViewById(R.id.return_button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // ここに処理を記述
+
+                finish();
+            }
+        });
 
     }
 

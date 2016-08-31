@@ -33,7 +33,7 @@ public class FirebaseTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_firebase_test);
 
 
-        //データベース利用準備
+        //データベース利用準備（必須）
         Firebase.setAndroidContext(getApplicationContext());
 
         {
