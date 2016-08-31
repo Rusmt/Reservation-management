@@ -10,66 +10,45 @@
     tools:context="com.example.a15110008.reservationmanagement.SelectDate"
     android:padding="0dp">
 
-    <TabHost
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="日付を選択してください。"
+        android:id="@+id/textView14"
+        android:textSize="24dp" />
+
+    <DatePicker
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/tabHost4"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_height="280dp"
+        android:id="@+id/datePicker"
+        android:calendarViewShown="false"
+        android:spinnersShown="true"
+        android:datePickerMode="spinner"
+        android:layout_below="@+id/textView14"
+        android:layout_alignParentStart="true" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
 
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></TabWidget>
+        <Button
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:text="予約情報確認"
+            android:id="@+id/sdReservationBTN" />
 
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <Button
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:text="決定"
+            android:id="@+id/sdOKbtn"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
 
-                <LinearLayout
-                    android:id="@+id/shTab1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:weightSum="1">
+    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="日付を選択してください。"
-                        android:id="@+id/textView9"
-                        android:textSize="24dp" />
-
-                    <DatePicker
-                        android:layout_width="match_parent"
-                        android:layout_height="280dp"
-                        android:id="@+id/datePicker"
-                        android:calendarViewShown="false"
-                        android:spinnersShown="true"
-                        android:datePickerMode="spinner"/>
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="決定"
-                        android:id="@+id/sdOKbtn"
-                        android:layout_gravity="center_horizontal" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/shTab2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
-
-            </FrameLayout>
-        </LinearLayout>
-    </TabHost>
 </RelativeLayout>

@@ -18,22 +18,6 @@ public class SelectDate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_date);
 
-        //TabHost
-        TabHost menutab = (TabHost) findViewById(R.id.tabHost4);
-        menutab.setup();
-
-        TabHost.TabSpec sbtab1 = menutab.newTabSpec("shtab1");
-        sbtab1.setIndicator("予約");
-        sbtab1.setContent(R.id.shTab1);
-        menutab.addTab(sbtab1);
-
-        TabHost.TabSpec sbtab2 = menutab.newTabSpec("shtab2");
-        sbtab2.setIndicator("予約確認");
-        sbtab2.setContent(R.id.shTab2);
-        menutab.addTab(sbtab2);
-
-        menutab.setCurrentTab(0);
-
         //DatePicker
         datePicker = (DatePicker)findViewById(R.id.datePicker);
         //日付の選択範囲を設定
@@ -43,7 +27,7 @@ public class SelectDate extends AppCompatActivity {
 
         if(datePicker != null) {
             //下限値(当日)の指定
-            datePicker.setMinDate(today.getTimeInMillis());
+            //datePicker.setMinDate(today.getTimeInMillis());
             //上限値(翌月)の指定
             datePicker.setMaxDate(maxday.getTimeInMillis());
         }
@@ -62,6 +46,16 @@ public class SelectDate extends AppCompatActivity {
                 intent.putExtra("selectedyear",inputYear);
                 intent.putExtra("selectedmonth",inputMonth);
                 intent.putExtra("selectedday",inputDay);
+                startActivity(intent);
+            }
+        });
+
+        //予約情報確認ボタンを押した時の処理
+        Button shReserveBtn = (Button)findViewById(R.id.sdReservationBTN);
+        shReserveBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void  onClick(View v){
+                Intent intent = new Intent(SelectDate.this, Reservation.class);
                 startActivity(intent);
             }
         });
