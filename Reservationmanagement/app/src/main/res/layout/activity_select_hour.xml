@@ -6,72 +6,69 @@
     tools:context="com.example.a15110008.reservationmanagement.SelectHour"
     android:padding="0dp">
 
-    <TabHost
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/tabHost2"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout5"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentStart="true">
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="利用したい時間帯を選択してください"
+            android:id="@+id/textView4"
+            android:textSize="20dp"
+            android:layout_below="@+id/linearLayout4"
+            android:layout_alignParentStart="true" />
+
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:text="(※複数選択可)"
+            android:id="@+id/textView5"
+            android:gravity="right" />
 
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></TabWidget>
+    </LinearLayout>
 
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:id="@+id/hourItem"
+        android:clickable="false"
+        android:contextClickable="false"
+        android:theme="@style/TextViewStyle"
+        android:foregroundGravity="center_vertical"
+        android:layout_above="@+id/linearLayout4"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout5" />
 
-                <LinearLayout
-                    android:id="@+id/shTab1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout4"
+        android:gravity="center_horizontal"
+        android:weightSum="1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="利用したい時間帯を選択してください"
-                        android:id="@+id/textView4"
-                        android:textSize="20dp" />
+        <Button
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:text="予約情報確認"
+            android:id="@+id/shReserveButton" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="(※複数選択可)"
-                        android:id="@+id/textView5"
-                        android:gravity="right" />
+        <Button
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:text="確認"
+            android:id="@+id/shOKbtn"
+            android:onClick="onClick"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
 
-                    <ListView
-                        android:layout_width="wrap_content"
-                        android:layout_height="350dp"
-                        android:id="@+id/hourItem"
-                        android:clickable="false"
-                        android:contextClickable="false"
-                        android:theme="@style/TextViewStyle"
-                        android:foregroundGravity="center_vertical" />
+    </LinearLayout>
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="確認"
-                        android:id="@+id/sbOKbtn"
-                        android:onClick="onClick" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/shTab2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
-
-            </FrameLayout>
-        </LinearLayout>
-    </TabHost>
 </RelativeLayout>

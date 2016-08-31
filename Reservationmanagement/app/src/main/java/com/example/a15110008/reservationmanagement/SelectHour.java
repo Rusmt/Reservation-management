@@ -8,8 +8,6 @@ import android.view.View;;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TabHost;
-import android.widget.TabHost.TabSpec;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,22 +18,6 @@ public class SelectHour extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_hour);
-
-        //TabHost
-        TabHost menutab =(TabHost)findViewById(R.id.tabHost2);
-        menutab.setup();
-
-        TabSpec sbtab1 = menutab.newTabSpec("tab1");
-        sbtab1.setIndicator("予約");
-        sbtab1.setContent(R.id.shTab1);
-        menutab.addTab(sbtab1);
-
-        TabSpec sbtab2 = menutab.newTabSpec("tab2");
-        sbtab2.setIndicator("予約確認");
-        sbtab2.setContent(R.id.shTab2);
-        menutab.addTab(sbtab2);
-
-        menutab.setCurrentTab(0);
 
         //ListView
         final ListView houritems = (ListView)findViewById(R.id.hourItem);
@@ -56,7 +38,7 @@ public class SelectHour extends AppCompatActivity {
         houritems.setAdapter(new ArrayAdapter(this, android.R.layout.simple_list_item_checked,items ));
         houritems.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
-        Button cbokbtn = (Button)findViewById(R.id.sbOKbtn);
+        Button cbokbtn = (Button)findViewById(R.id.shOKbtn);
 
         cbokbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +94,17 @@ public class SelectHour extends AppCompatActivity {
                     toast.show();
                 }
             }
+        });
+
+        //予約情報確認ボタンを押した時の処理
+        Button shReserveBtn = (Button)findViewById(R.id.shReserveButton);
+        shReserveBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void  onClick(View v){
+                Intent intent = new Intent(SelectHour.this, Reservation.class);
+                startActivity(intent);
+            }
+
         });
     }
 }

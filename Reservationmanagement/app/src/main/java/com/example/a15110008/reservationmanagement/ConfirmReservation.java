@@ -1,7 +1,10 @@
 package com.example.a15110008.reservationmanagement;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -12,25 +15,21 @@ public class ConfirmReservation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_reservation);
 
-        //TabHost
-        TabHost menutab =(TabHost)findViewById(R.id.tabHost3);
-        menutab.setup();
 
-        TabHost.TabSpec crtab1 = menutab.newTabSpec("tab1");
-        crtab1.setIndicator("予約");
-        crtab1.setContent(R.id.crTab1);
-        menutab.addTab(crtab1);
-
-        TabHost.TabSpec crtab2 = menutab.newTabSpec("tab2");
-        crtab2.setIndicator("予約確認");
-        crtab2.setContent(R.id.crTab2);
-        menutab.addTab(crtab2);
-
-        menutab.setCurrentTab(0);
-
+        //利用時間の取得
         TextView srselectedhour =(TextView)findViewById((R.id.selectedHour));
         srselectedhour.setText(getIntent().getExtras().getString("selectedhour"));
 
 
+        //確定ボタンを御した時の処理
+        Button crOKBtn = (Button)findViewById(R.id.crOKButton);
+
+        crOKBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void  onClick(View v){
+                Intent intent = new Intent(ConfirmReservation.this, Reservation.class);
+                startActivity(intent);
+            }
+        });
     }
 }
