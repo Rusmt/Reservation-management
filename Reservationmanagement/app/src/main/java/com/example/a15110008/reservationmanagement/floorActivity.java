@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class floorActivity extends AppCompatActivity {
@@ -33,6 +34,14 @@ public class floorActivity extends AppCompatActivity {
                                     int position, long id) {
                 Intent intent = new Intent(floorActivity.this, RoomActivity.class);
                 intent.putExtra("room_list",getroom_list());
+                startActivity(intent);
+            }
+        });
+        Button button2 = (Button)findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Sub 画面を起動
+                Intent intent = new Intent(floorActivity.this,Reservation.class);
                 startActivity(intent);
             }
         });

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,8 +49,14 @@ public class RoomActivity extends AppCompatActivity {
                     Intent intent = new Intent(RoomActivity.this, SelectHour.class);
                     startActivity(intent);
                 }
-
-
+            });
+            Button button3 = (Button)findViewById(R.id.button3);
+            button3.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Sub 画面を起動
+                    Intent intent = new Intent(RoomActivity.this,Reservation.class);
+                    startActivity(intent);
+                }
             });
         }
     }
