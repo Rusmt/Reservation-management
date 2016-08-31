@@ -1,4 +1,4 @@
-package com.example.a15110008.reservation;
+package com.example.a15110008.reservationmanagement;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
