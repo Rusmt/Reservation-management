@@ -3,21 +3,18 @@ package com.example.a15110008.reservationmanagement;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Locale;
 
-
-public class RoomActivity extends AppCompatActivity {
+public class tab2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD:Reservationmanagement/app/src/main/java/com/example/a15110008/reservationmanagement/RoomActivity.java
         setContentView(R.layout.activity_room);
 
 
@@ -52,5 +49,8 @@ public class RoomActivity extends AppCompatActivity {
 //                Toast.makeText(getApplicationContext(), "Test OK!", Toast.LENGTH_SHORT).show();
 //            }
 //        });
+=======
+        setContentView(R.layout.activity_tab2);
+>>>>>>> feature/kunitomi:Reservationmanagement/app/src/main/java/com/example/a15110008/reservation/tab2.java
     }
 }
