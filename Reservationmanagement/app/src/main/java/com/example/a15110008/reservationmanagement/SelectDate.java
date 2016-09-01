@@ -47,10 +47,13 @@ public class SelectDate extends AppCompatActivity {
         sdOKbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RoomList reserveInfo = new RoomList();
+                RoomReservationInfomation reserveInfo = new RoomReservationInfomation();
+
+                //選択した時間を文字列で取得
                 reserveInfo.ReserveYear(datePicker.getYear());
                 reserveInfo.ReserveMonth(datePicker.getMonth());
                 reserveInfo.ReserveDay(datePicker.getDayOfMonth());
+
                 Intent intent = new Intent(SelectDate.this, floorActivity.class);
                 intent.putExtra("reserve_info",reserveInfo);
                 startActivity(intent);

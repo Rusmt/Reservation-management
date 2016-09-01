@@ -87,8 +87,9 @@ public class SelectHour extends AppCompatActivity {
                 }
                 if (checkflg){
                     //画面遷移処理
-                    RoomList reserveInfo = new RoomList();
-                    reserveInfo.ReserveHour(checked);
+                    RoomReservationInfomation reserveInfo = new RoomReservationInfomation();
+                    //reserveInfo.ReserveHour(checked);
+                    reserveInfo.ReserveTime(selecteditem);
                     Intent intent = new Intent(SelectHour.this, ConfirmReservation.class);
                     intent.putExtra("selectedhour", selecteditem);
                     intent.putExtra("reserve_info",reserveInfo);
