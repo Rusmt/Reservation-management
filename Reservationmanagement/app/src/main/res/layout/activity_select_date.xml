@@ -17,6 +17,14 @@
         android:id="@+id/textView14"
         android:textSize="24dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*本日から1ヶ月後までの期間で予約が可能です"
+        android:id="@+id/textView9"
+        android:layout_below="@+id/textView14"
+        android:layout_alignParentEnd="true" />
+
     <DatePicker
         android:layout_width="match_parent"
         android:layout_height="280dp"
@@ -24,7 +32,7 @@
         android:calendarViewShown="false"
         android:spinnersShown="true"
         android:datePickerMode="spinner"
-        android:layout_below="@+id/textView14"
+        android:layout_below="@+id/textView9"
         android:layout_alignParentStart="true" />
 
     <LinearLayout
