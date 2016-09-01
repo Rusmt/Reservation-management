@@ -24,8 +24,7 @@ public class Reservation extends AppCompatActivity {
 
     // 最初のリスト
     private static final String[] INITIAL_LIST = {
-            "最初に", "表示される", "リストの", "項目で", "あります", "あ", "い", "う", "え",
-            "お", "か", "き", "く",
+            "最初に", "表示される", "リストの", "項目で", "あります", "あ", "い", "う", "え"
     };
 
     String tag = "DialogTest";
@@ -48,7 +47,7 @@ public class Reservation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
 
-        // リストビュー
+        // リストビューの取得
         mListView = (EnhancedListView) findViewById(R.id.listview1);
 
         // リストビューにアイテム追加
@@ -92,7 +91,7 @@ public class Reservation extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //ボタン押した時の処理内容をここに記述
-                                //サーバの情報を更新
+                                //classの情報を更新
 
 
                             }
@@ -101,7 +100,7 @@ public class Reservation extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //ボタン押した時の処理内容をここに記述
-                                //変更まえのページに戻す（リストが元に戻る）
+
 
 
                             }
@@ -110,7 +109,7 @@ public class Reservation extends AppCompatActivity {
 
             }
         });
-
+        //←前へボタンの処理
         Button btn = (Button)findViewById(R.id.return_button);
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
