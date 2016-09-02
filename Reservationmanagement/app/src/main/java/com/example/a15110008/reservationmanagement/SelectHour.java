@@ -38,12 +38,12 @@ public class SelectHour extends AppCompatActivity {
         houritems.setAdapter(new ArrayAdapter(this, android.R.layout.simple_list_item_checked,items ));
         houritems.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
+        //決定ボタンを押した時の動作
         Button cbokbtn = (Button)findViewById(R.id.shOKbtn);
 
         cbokbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelectHour.this, ConfirmReservation.class);
                 String selecteditem = "";
                 String search = "";
                 int index;
@@ -86,7 +86,13 @@ public class SelectHour extends AppCompatActivity {
                     }
                 }
                 if (checkflg){
+                    //画面遷移処理
+                    RoomReservationInfomation reserveInfo = new RoomReservationInfomation();
+                    //reserveInfo.ReserveHour(checked);
+                    reserveInfo.ReserveTime(selecteditem);
+                    Intent intent = new Intent(SelectHour.this, ConfirmReservation.class);
                     intent.putExtra("selectedhour", selecteditem);
+                    intent.putExtra("reserve_info",reserveInfo);
                     startActivity(intent);
                 }else{
                     //時間帯が選択されていない場合Toastで警告
