@@ -63,11 +63,14 @@ public class ConfirmReservation extends AppCompatActivity {
         int index = time.indexOf("～");
         String startTime = time.substring(0,index);
         String endTime = time.substring(index + 1);
+        endTime = endTime.replace("\r\n","");
 
         //予約データ登録
-        Firebase messages = new Firebase(BASE_URL + "TestReserVAtion");//値を設定するDBを決める
-        messages.push().setValue(
-               // new ReservationInfo(date,endTime,startTime),//設定する項目数
+        Firebase messages = new Firebase(BASE_URL + "testreservation");//値を設定するDBを決める
+        Firebase testreservation = messages.child("testreservation");
+
+        testreservation.push().setValue(
+                new ReservationInfo("101号室","Test","20160902","15:00","18:00"),//設定する項目数
                 new Firebase.CompletionListener(){
             @Override
                     public void onComplete(FirebaseError firebaseError, Firebase firebase){
