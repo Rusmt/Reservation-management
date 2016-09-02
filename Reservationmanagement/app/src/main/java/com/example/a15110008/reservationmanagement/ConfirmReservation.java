@@ -22,7 +22,7 @@ public class ConfirmReservation extends AppCompatActivity {
     private static final String TAG = ConfirmReservation.class.getSimpleName();
 
     //FIreBaseのURL
-    private final static String BASE_URL = "https://reservationmanagement-161c6.firebaseio.com/";
+    private final static String BASE_URL = "https://reservationmanagement-fbcbf.firebaseio.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,7 @@ public class ConfirmReservation extends AppCompatActivity {
     private void addresetrvation(RoomReservationInfomation reserveinfo){
 
         //classから取得したデータをFireBaseに登録できるように整理
+        String user = reserveinfo.getUser();
         String date = reserveinfo.getSelectedYear() + reserveinfo.getSelectedMonth() + reserveinfo.getSelectedDay();
         String floor = reserveinfo.getSelectedFloor();
         String size = reserveinfo.getSelectedSize();
@@ -60,13 +61,13 @@ public class ConfirmReservation extends AppCompatActivity {
         String time = reserveinfo.getSelectedTime();
 
         int index = time.indexOf("～");
-        String startTime = time.substring(0,index - 1);
-        String endTime = time.substring(index);
+        String startTime = time.substring(0,index);
+        String endTime = time.substring(index + 1);
 
-        //予約データ
-        Firebase messages = new Firebase(BASE_URL + "Test");//値を設定するDBを決める
+        //予約データ登録
+        Firebase messages = new Firebase(BASE_URL + "TestReserVAtion");//値を設定するDBを決める
         messages.push().setValue(
-                new ReservationInfo(date,floor,size,startTime,endTime),//設定する項目数
+               // new ReservationInfo(date,endTime,startTime),//設定する項目数
                 new Firebase.CompletionListener(){
             @Override
                     public void onComplete(FirebaseError firebaseError, Firebase firebase){
@@ -77,11 +78,6 @@ public class ConfirmReservation extends AppCompatActivity {
 
                 Log.d(TAG, "data successfully saved!");
             }
-        }
-
-        );
-
+        });
     }
-
-
 }

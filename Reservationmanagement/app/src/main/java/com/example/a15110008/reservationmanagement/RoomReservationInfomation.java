@@ -9,11 +9,12 @@ package com.example.a15110008.reservationmanagement;
 public class RoomReservationInfomation implements Serializable {
     //部屋の予約情報を収集するクラス
 
-    int selectedYear = 0;//年
-    int selectedMonth = 0;//月
-    int selectedDay = 0;//日
-    String selectedFloor = "";//階層
-    String selectedSize = "";//部屋の大きさ
+    String user = "testUser";//ユーザー名
+    int selectedYear =2015;//年
+    int selectedMonth = 9;//月
+    int selectedDay = 2;//日
+    String selectedFloor = "1F";//階層
+    String selectedSize = "大";//部屋の大きさ
     String selectedTime = "";//利用時間
     SparseBooleanArray checked;//選択利用時間
 
@@ -48,6 +49,8 @@ public class RoomReservationInfomation implements Serializable {
     }
 
     //getter
+
+    public  String getUser(){return user;}
 
     public String getSelectedYear(){
         String year = Integer.toString(selectedYear);
