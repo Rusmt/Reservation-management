@@ -6,7 +6,6 @@ import android.view.View;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.TabHost;
 
 import java.util.Calendar;
 
@@ -26,10 +25,19 @@ public class SelectDate extends AppCompatActivity {
         maxday.add(Calendar.MONTH, 1);
 
         if(datePicker != null) {
-            //下限値(当日)の指定
-            //datePicker.setMinDate(today.getTimeInMillis());
             //上限値(翌月)の指定
+            maxday.set(Calendar.HOUR_OF_DAY, maxday.getMaximum(Calendar.HOUR_OF_DAY));
+            maxday.set(Calendar.MINUTE, maxday.getMaximum(Calendar.MINUTE));
+            maxday.set(Calendar.SECOND, maxday.getMaximum(Calendar.SECOND));
+            maxday.set(Calendar.MILLISECOND, maxday.getMaximum(Calendar.MILLISECOND));
             datePicker.setMaxDate(maxday.getTimeInMillis());
+
+            //下限値(当日)の指定
+            today.set(Calendar.HOUR_OF_DAY, today.getMinimum(Calendar.HOUR_OF_DAY));
+            today.set(Calendar.MINUTE, today.getMinimum(Calendar.MINUTE));
+            today.set(Calendar.SECOND, today.getMinimum(Calendar.SECOND));
+            today.set(Calendar.MILLISECOND, today.getMinimum(Calendar.MILLISECOND));
+            datePicker.setMinDate(today.getTimeInMillis());
         }
 
         //決定ボタン入力でDatePickerの日付を取得する
@@ -39,13 +47,15 @@ public class SelectDate extends AppCompatActivity {
         sdOKbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int inputYear = datePicker.getYear();//年を取得
-                int inputMonth = datePicker.getMonth();//月を取得
-                int inputDay = datePicker.getDayOfMonth();//日を取得
+                RoomReservationInfomation reserveInfo = new RoomReservationInfomation();
+
+                //選択した時間を文字列で取得
+                reserveInfo.ReserveYear(datePicker.getYear());
+                reserveInfo.ReserveMonth(datePicker.getMonth());
+                reserveInfo.ReserveDay(datePicker.getDayOfMonth());
+
                 Intent intent = new Intent(SelectDate.this, floorActivity.class);
-                intent.putExtra("selectedyear",inputYear);
-                intent.putExtra("selectedmonth",inputMonth);
-                intent.putExtra("selectedday",inputDay);
+                intent.putExtra("reserve_info",reserveInfo);
                 startActivity(intent);
             }
         });

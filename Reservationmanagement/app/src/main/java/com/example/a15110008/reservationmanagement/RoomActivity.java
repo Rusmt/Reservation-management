@@ -43,9 +43,10 @@ public class RoomActivity extends AppCompatActivity {
             room_name_text_view.setText(room_name);
             room_size_text_view.setText(room_size);
             room_name_text_view.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(RoomActivity.this, SelectHour.class);
+                        Intent intent = new Intent(RoomActivity.this, SelectHour.class);
                     startActivity(intent);
                 }
             });

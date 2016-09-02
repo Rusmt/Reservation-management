@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.firebase.client.Firebase;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 
@@ -19,10 +21,10 @@ import de.timroes.android.listview.EnhancedListView;
 public class Reservation extends AppCompatActivity {
 
 
+
     // 最初のリスト
     private static final String[] INITIAL_LIST = {
-            "最初に", "表示される", "リストの", "項目で", "あります", "あ", "い", "う", "え",
-            "お", "か", "き", "く",
+            "room1", "room2", "room3", "room4" , "room5", "room6", "room7", "room8", "room9"
     };
 
     String tag = "DialogTest";
@@ -39,10 +41,13 @@ public class Reservation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        //データベース利用準備
+        Firebase.setAndroidContext(getApplicationContext());
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
 
-        // リストビュー
+        // リストビューの取得
         mListView = (EnhancedListView) findViewById(R.id.listview1);
 
         // リストビューにアイテム追加
@@ -77,7 +82,7 @@ public class Reservation extends AppCompatActivity {
 
         Button confirmBtn = (Button)findViewById(R.id.button);
 
-        confirmBtn.setOnClickListener(new View.OnClickListener(){
+            confirmBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(Reservation.this)//;や}がないので改行はしているが実際は.show()までコードがつながっている
@@ -86,21 +91,31 @@ public class Reservation extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //ボタン押した時の処理内容をここに記述
+                                //classの情報を更新
+
+
                             }
                         })
                         .setNegativeButton("NO", new DialogInterface.OnClickListener() {//ダイアログ内に表示するボタンの設定"NO"押した場合
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //ボタン押した時の処理内容をここに記述
+
+
+
                             }
                         })
                         .show();
             }
         });
+        //←前へボタンの処理
+        Button btn = (Button)findViewById(R.id.return_button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // ここに処理を記述
 
-
+                finish();
+            }
+        });
     }
-
-
-
 }
