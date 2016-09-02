@@ -24,7 +24,7 @@ public class Reservation extends AppCompatActivity {
 
     // 最初のリスト
     private static final String[] INITIAL_LIST = {
-            "最初に", "表示される", "リストの", "項目で", "あります", "あ", "い", "う", "え"
+            "room1", "room2", "room3", "room4" , "room5", "room6", "room7", "room8", "room9"
     };
 
     String tag = "DialogTest";
@@ -82,7 +82,7 @@ public class Reservation extends AppCompatActivity {
 
         Button confirmBtn = (Button)findViewById(R.id.button);
 
-        confirmBtn.setOnClickListener(new View.OnClickListener(){
+            confirmBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(Reservation.this)//;や}がないので改行はしているが実際は.show()までコードがつながっている
@@ -106,7 +106,6 @@ public class Reservation extends AppCompatActivity {
                             }
                         })
                         .show();
-
             }
         });
         //←前へボタンの処理
@@ -118,9 +117,5 @@ public class Reservation extends AppCompatActivity {
                 finish();
             }
         });
-
     }
-
-
-
 }
