@@ -44,7 +44,7 @@ public class floorActivity extends AppCompatActivity {
         String sum[];
         sum=new String[2];
         sum[0]="101号室";
-        sum[1]="大";
+        sum[1]=" 大 ";
 
         String sum2[];
         sum2=new String[2];
