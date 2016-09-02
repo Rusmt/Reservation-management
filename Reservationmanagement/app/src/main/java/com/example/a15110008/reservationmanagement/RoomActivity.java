@@ -22,7 +22,6 @@ public class RoomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_room);
 
 
-
         Intent get_room_list=getIntent();
         RoomList room_list= (RoomList) get_room_list.getSerializableExtra("room_list");
 
