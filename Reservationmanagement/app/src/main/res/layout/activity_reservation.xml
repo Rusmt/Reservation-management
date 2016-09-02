@@ -14,30 +14,50 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp"
         android:text="予約状況の確認"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp" />
 
     <de.timroes.android.listview.EnhancedListView
         android:id="@+id/listview1"
         android:layout_width="match_parent"
         android:layout_height="216dp"
-        android:layout_alignBottom="@+id/button"
-        android:layout_alignParentStart="true"
+        android:layout_weight="1"
         android:layout_below="@+id/textView2"
-        android:layout_marginBottom="43dp"
-        android:layout_weight="1"></de.timroes.android.listview.EnhancedListView>
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="55dp"
+        android:layout_above="@+id/button"></de.timroes.android.listview.EnhancedListView>
 
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
         android:layout_marginBottom="56dp"
-        android:text="変更の確定" />
+        android:text="変更の確定"
+        android:layout_alignEnd="@+id/listview1"
+        android:layout_alignStart="@+id/textView2" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="←前へ"
+        android:id="@+id/return_button"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="予約の変更"
+        android:id="@+id/button4"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/return_button" />
 
 </RelativeLayout>
